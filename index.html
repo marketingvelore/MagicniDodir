@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Magični dodir — Centar za trudnice, bebe i mame | Republika Srpska</title>
+<meta name="description" content="Prvi centar za trudnice, bebe i mame u Republici Srpskoj. Akademija za trudnice, masaža beba, baby handling, vježbe za bebe 0-3mj, masaža zlatnim rukavicama i Fohow tretmani.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --blush:#f6dfe0;--blush-deep:#e9b9bd;--rose:#d99aa0;--plum:#7d4a52;--plum-deep:#5d3439;
+  --gold:#c9a24b;--gold-light:#e3c87f;--cream:#fdf8f4;--cream-2:#f9efe8;
+  --ink:#3a2c2e;--muted:#8a7274;--white:#fff;
+  --shadow:0 20px 60px -20px rgba(125,74,82,.35);--shadow-sm:0 10px 30px -12px rgba(125,74,82,.28);
+  --serif:'Cormorant Garamond',Georgia,serif;--sans:'Jost',system-ui,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);color:var(--ink);background:var(--cream);overflow-x:hidden;line-height:1.7;font-weight:300}
+h1,h2,h3,h4{font-family:var(--serif);font-weight:600;line-height:1.1;letter-spacing:.3px}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
+.wrap{width:min(1240px,90%);margin:0 auto}
+.eyebrow{font-family:var(--sans);font-weight:500;letter-spacing:.32em;text-transform:uppercase;font-size:.72rem;color:var(--rose);display:inline-flex;align-items:center;gap:.6rem}
+.eyebrow::before{content:"";width:34px;height:1px;background:var(--gold)}
+.section{padding:clamp(60px,8vw,110px) 0;position:relative}
+.btn{display:inline-flex;align-items:center;gap:.6rem;font-family:var(--sans);font-weight:500;letter-spacing:.06em;font-size:.84rem;text-transform:uppercase;padding:1rem 2.1rem;border-radius:50px;cursor:pointer;border:none;transition:.4s cubic-bezier(.2,.8,.2,1);position:relative;overflow:hidden}
+.btn::after{content:"";position:absolute;top:0;left:-120%;width:60%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.45),transparent);transform:skewX(-20deg);transition:.6s;pointer-events:none}
+.btn:hover::after{left:140%}
+.btn-primary{background:linear-gradient(120deg,var(--plum),var(--rose));color:#fff;box-shadow:0 14px 30px -10px rgba(125,74,82,.6)}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 20px 40px -12px rgba(125,74,82,.7)}
+.btn-ghost{background:transparent;color:var(--plum);border:1.5px solid var(--blush-deep)}
+.btn-ghost:hover{background:var(--blush);border-color:var(--rose);transform:translateY(-3px)}
+/* ---------- NAV ---------- */
+header{position:fixed;top:0;left:0;right:0;z-index:200;transition:.4s;padding:.9rem 0;background:rgba(253,248,244,.88);backdrop-filter:blur(12px);border-bottom:1px solid rgba(233,185,189,.45);box-shadow:0 6px 24px -16px rgba(125,74,82,.4)}
+header.scrolled{background:rgba(253,248,244,.96);box-shadow:0 10px 34px -16px rgba(125,74,82,.5);padding:.5rem 0;border-bottom-color:rgba(233,185,189,.6)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:1.5rem;padding:0 clamp(.5rem,3vw,2.4rem)}
+.brand{display:flex;align-items:center;gap:.85rem;cursor:pointer}
+.brand .mark{width:50px;height:50px;border-radius:50%;background:radial-gradient(circle at 35% 30%,var(--blush),var(--rose));display:flex;align-items:center;justify-content:center;box-shadow:0 8px 20px -8px rgba(217,154,160,.8);flex:0 0 auto;transition:.5s}
+.brand:hover .mark{transform:rotate(-12deg) scale(1.06)}
+.brand .mark svg{width:26px;height:26px;display:block;transform:translateY(1px)}
+.brand .txt b{font-family:var(--serif);font-size:1.55rem;font-weight:700;color:var(--plum);display:block;line-height:1}
+.brand .txt span{font-size:.62rem;letter-spacing:.26em;text-transform:uppercase;color:var(--muted)}
+.menu{display:flex;align-items:center;gap:.35rem;list-style:none}
+.menu a{font-size:.98rem;font-weight:400;letter-spacing:.02em;color:var(--ink);position:relative;padding:.55rem 1.05rem;border-radius:50px;transition:.35s cubic-bezier(.2,.8,.2,1);cursor:pointer;display:inline-block}
+.menu a::after{content:"";position:absolute;left:50%;bottom:.32rem;width:0;height:2px;background:var(--gold);transition:.35s;transform:translateX(-50%);border-radius:2px}
+.menu a:hover{background:var(--blush);color:var(--plum);transform:translateY(-2px)}
+.menu a:hover::after{width:38%}
+.menu a.active{background:linear-gradient(120deg,var(--blush),var(--blush-deep));color:var(--plum-deep);font-weight:500}
+.menu a.active::after{width:38%}
+.nav-cta{display:inline-flex;font-size:.82rem;padding:.85rem 1.8rem}
+.burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px}
+.burger span{width:28px;height:2px;background:var(--plum);border-radius:2px;transition:.35s}
+.burger.x span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.burger.x span:nth-child(2){opacity:0}
+.burger.x span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+/* ---------- PAGE SYSTEM ---------- */
+main{padding-top:0}
+.page{display:none}
+.page.active{display:block}
+@keyframes pageInUp{0%{opacity:0;transform:translateY(40px)}100%{opacity:1;transform:none}}
+.page.active>*{animation:pageInUp .8s cubic-bezier(.2,.8,.2,1) both}
+.page.active>*:nth-child(1){animation-delay:.05s}
+.page.active>*:nth-child(2){animation-delay:.16s}
+.page.active>*:nth-child(3){animation-delay:.27s}
+.page.active>*:nth-child(4){animation-delay:.38s}
+.page.active>*:nth-child(5){animation-delay:.49s}
+/* transition veil */
+.veil{position:fixed;inset:0;z-index:300;background:linear-gradient(160deg,var(--cream),var(--blush));display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .45s ease}
+.veil.show{opacity:1;pointer-events:all}
+.veil .vmark{width:74px;height:74px;border-radius:50%;background:radial-gradient(circle at 35% 30%,var(--blush),var(--rose));display:flex;align-items:center;justify-content:center;box-shadow:0 14px 30px -10px rgba(217,154,160,.9);animation:vpulse 1s ease-in-out infinite}
+.veil .vmark svg{width:36px;height:36px;display:block;transform:translateY(1px)}
+@keyframes vpulse{0%,100%{transform:scale(1)}50%{transform:scale(1.14)}}
+/* ---------- PAGE HERO (inner pages) ---------- */
+.phero{position:relative;padding:clamp(120px,16vw,180px) 0 clamp(50px,7vw,80px);text-align:center;overflow:hidden;background:linear-gradient(160deg,var(--cream) 0%,var(--blush) 130%)}
+.phero .bg-blob{opacity:.5}
+.phero h1{font-size:clamp(2.4rem,5.4vw,4rem);color:var(--plum-deep);margin:.6rem 0 .8rem}
+.phero p{color:var(--muted);max-width:34em;margin:0 auto;font-size:1.05rem}
+.crumb{display:inline-flex;gap:.5rem;align-items:center;font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--rose);margin-bottom:.4rem}
+.crumb span{color:var(--muted)}
+/* ---------- HERO (home) ---------- */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;padding:120px 0 60px;overflow:hidden;background:linear-gradient(160deg,var(--cream) 0%,var(--blush) 120%)}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:3rem;align-items:center;width:100%}
+.hero-copy{position:relative;z-index:3}
+@media(min-width:1001px){#page-home .hero-copy{padding-left:clamp(1.5rem,4vw,4rem)}}
+.badge-first{display:inline-flex;align-items:center;gap:.55rem;background:#fff;padding:.55rem 1.2rem;border-radius:50px;box-shadow:var(--shadow-sm);font-size:.76rem;font-weight:500;letter-spacing:.05em;color:var(--plum);margin-bottom:1.6rem}
+.badge-first .dot{width:8px;height:8px;border-radius:50%;background:var(--gold);animation:pulse 2.4s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(201,162,75,.55)}70%{box-shadow:0 0 0 12px rgba(201,162,75,0)}100%{box-shadow:0 0 0 0 rgba(201,162,75,0)}}
+.hero h1{font-size:clamp(2.8rem,6vw,4.7rem);color:var(--plum-deep);margin:.4rem 0 1.3rem}
+.hero h1 em{font-style:italic;color:var(--rose)}
+.hero p.lead{font-size:1.08rem;color:var(--muted);max-width:30em;margin-bottom:2.2rem}
+.hero-actions{display:flex;gap:1rem;flex-wrap:wrap}
+.hero-stats{display:flex;gap:2.4rem;margin-top:3rem;flex-wrap:wrap}
+.hero-stats .num{font-family:var(--serif);font-size:2.4rem;font-weight:700;color:var(--gold);line-height:1}
+.hero-stats small{display:block;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:.3rem}
+.hero-visual{position:relative;z-index:2;min-height:480px}
+.hero-img{position:absolute;border-radius:24px;overflow:hidden;box-shadow:var(--shadow);background:var(--blush)}
+.hero-img::after{content:"";position:absolute;inset:0;background:linear-gradient(200deg,rgba(93,52,57,.05) 0%,rgba(93,52,57,.28) 100%);pointer-events:none;z-index:1}
+.hero-img img{width:100%;height:100%;object-fit:cover;transition:.7s}
+.hero-img:hover img{transform:scale(1.08)}
+.hi-1{width:62%;height:74%;top:0;right:0;z-index:2;animation:floaty 7s ease-in-out infinite}
+.hi-2{width:46%;height:46%;bottom:0;left:0;z-index:3;border:6px solid #fff;animation:floaty 6s ease-in-out infinite .8s}
+.hi-3{width:34%;height:30%;top:8%;left:4%;z-index:1;animation:floaty 8s ease-in-out infinite .4s}
+@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-16px)}}
+.ring{position:absolute;border:1.5px dashed var(--gold-light);border-radius:50%;opacity:.55;z-index:1;animation:spin 26s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.float-card{position:absolute;background:#fff;border-radius:16px;padding:.8rem 1.1rem;box-shadow:var(--shadow-sm);display:flex;align-items:center;gap:.7rem;z-index:5;font-size:.78rem;font-weight:500;transition:.4s;white-space:nowrap}
+.float-card:hover{transform:scale(1.07) translateY(-4px)}
+.float-card .ic{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:var(--blush);color:var(--plum);flex:0 0 auto}
+.fc-1{top:6%;right:3%;animation:floaty 5.5s ease-in-out infinite}
+.fc-2{bottom:7%;left:0;animation:floaty 6.5s ease-in-out infinite 1s}
+.bg-blob{position:absolute;border-radius:50%;z-index:0;opacity:.5;filter:blur(40px)}
+/* ---------- MARQUEE ---------- */
+.marquee{background:var(--plum-deep);color:#fff;padding:1.1rem 0;overflow:hidden;white-space:nowrap}
+.marquee-track{display:inline-flex;gap:3.5rem;animation:scrollx 24s linear infinite;font-family:var(--serif);font-style:italic;font-size:1.25rem;align-items:center}
+.marquee:hover .marquee-track{animation-play-state:paused}
+.marquee-track span{display:inline-flex;align-items:center;gap:1rem}
+.marquee-track .star{color:var(--gold-light)}
+@keyframes scrollx{to{transform:translateX(-50%)}}
+/* ---------- SECTION HEAD ---------- */
+.shead{text-align:center;max-width:680px;margin:0 auto 3.4rem}
+.shead h2{font-size:clamp(2.1rem,4.4vw,3.3rem);color:var(--plum-deep);margin:.7rem 0 1rem}
+.shead p{color:var(--muted);font-size:1.03rem}
+/* ---------- ABOUT ---------- */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,4.5rem);align-items:center}
+.about-media{position:relative}
+.about-media .main-img{border-radius:26px;overflow:hidden;box-shadow:var(--shadow);aspect-ratio:4/5}
+.about-media .main-img img{width:100%;height:100%;object-fit:cover;transition:.7s}
+.about-media:hover .main-img img{transform:scale(1.06)}
+.about-media .stat-bubble{position:absolute;bottom:-26px;right:-18px;background:linear-gradient(135deg,var(--plum),var(--rose));color:#fff;border-radius:20px;padding:1.3rem 1.6rem;box-shadow:var(--shadow);text-align:center;transition:.4s}
+.about-media .stat-bubble:hover{transform:translateY(-5px) scale(1.04)}
+.about-media .stat-bubble b{font-family:var(--serif);font-size:2.4rem;display:block;line-height:1}
+.about-media .stat-bubble span{font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;opacity:.9}
+.about-media .dots{position:absolute;top:-22px;left:-22px;width:110px;height:110px;background-image:radial-gradient(var(--blush-deep) 1.8px,transparent 1.8px);background-size:16px 16px;z-index:-1;opacity:.7}
+.about-copy h2{font-size:clamp(2rem,4vw,3rem);color:var(--plum-deep);margin:.7rem 0 1.2rem}
+.about-copy p{color:var(--muted);margin-bottom:1.1rem}
+.about-list{list-style:none;margin-top:1.6rem;display:grid;gap:1rem}
+.about-list li{display:flex;gap:.9rem;align-items:flex-start;font-size:.96rem;color:var(--ink);transition:.35s}
+.about-list li:hover{transform:translateX(6px)}
+.about-list .tick{flex:0 0 auto;width:26px;height:26px;border-radius:50%;background:var(--blush);color:var(--plum);display:grid;place-items:center;font-size:.8rem;transition:.35s}
+.about-list li:hover .tick{background:var(--rose);color:#fff}
+/* ---------- SERVICES ---------- */
+.svc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:1.6rem}
+.svc-card{background:#fff;border-radius:22px;padding:2.2rem 1.9rem;box-shadow:var(--shadow-sm);position:relative;overflow:hidden;transition:.45s cubic-bezier(.2,.8,.2,1);border:1px solid rgba(233,185,189,.4)}
+.svc-card::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--gold),var(--rose));transform:scaleX(0);transform-origin:left;transition:.45s}
+.svc-card::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 80% 0%,rgba(246,223,224,.6),transparent 60%);opacity:0;transition:.45s}
+.svc-card:hover{transform:translateY(-10px);box-shadow:var(--shadow)}
+.svc-card:hover::before{transform:scaleX(1)}
+.svc-card:hover::after{opacity:1}
+.svc-ic{width:62px;height:62px;border-radius:18px;display:grid;place-items:center;background:linear-gradient(135deg,var(--blush),var(--cream-2));margin-bottom:1.3rem;transition:.45s;position:relative;z-index:1}
+.svc-card:hover .svc-ic{transform:rotate(-8deg) scale(1.08);background:linear-gradient(135deg,var(--rose),var(--blush-deep))}
+.svc-ic svg{width:32px;height:32px;color:var(--plum);transition:.45s}
+.svc-card:hover .svc-ic svg{color:#fff}
+.svc-card h3{font-size:1.5rem;color:var(--plum-deep);margin-bottom:.6rem;position:relative;z-index:1}
+.svc-card p{font-size:.92rem;color:var(--muted);position:relative;z-index:1}
+.svc-card .tag{display:inline-block;margin-top:1.1rem;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);font-weight:600;position:relative;z-index:1}
+/* ---------- ACADEMY ---------- */
+.academy{background:linear-gradient(150deg,var(--plum-deep),var(--plum));color:#fff;position:relative;overflow:hidden;border-radius:34px}
+.academy .bg-blob{opacity:.25}
+.acad-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,4.5rem);align-items:center;position:relative;z-index:2;padding:clamp(2.5rem,5vw,4rem)}
+.acad-copy .eyebrow{color:var(--gold-light)}
+.acad-copy .eyebrow::before{background:var(--gold-light)}
+.acad-copy h2{font-size:clamp(2.1rem,4.4vw,3.3rem);margin:.7rem 0 1.2rem;color:#fff}
+.acad-copy h2 em{font-style:italic;color:var(--gold-light)}
+.acad-copy p{color:rgba(255,255,255,.8);margin-bottom:1.6rem}
+.team-pills{display:flex;flex-wrap:wrap;gap:.7rem;margin-bottom:2rem}
+.team-pills span{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.22);padding:.55rem 1.1rem;border-radius:50px;font-size:.82rem;backdrop-filter:blur(6px);display:inline-flex;align-items:center;gap:.5rem;transition:.35s;cursor:default}
+.team-pills span:hover{background:var(--gold-light);color:var(--plum-deep);transform:translateY(-3px)}
+.team-pills span:hover .ic{color:var(--plum-deep)}
+.team-pills .ic{color:var(--gold-light)}
+.acad-media{position:relative}
+.acad-media img{border-radius:24px;box-shadow:0 30px 60px -20px rgba(0,0,0,.5);aspect-ratio:1/1;object-fit:cover;width:100%;transition:.6s}
+.acad-media:hover img{transform:scale(1.04)}
+.acad-media .ring{width:120%;height:120%;top:-10%;left:-10%;border-color:rgba(227,200,127,.4)}
+.phase-row{display:flex;gap:1rem;margin-top:1.4rem;flex-wrap:wrap}
+.phase{background:rgba(255,255,255,.08);border-radius:14px;padding:1rem 1.2rem;flex:1;min-width:120px;transition:.35s}
+.phase:hover{background:rgba(255,255,255,.16);transform:translateY(-4px)}
+.phase b{font-family:var(--serif);font-size:1.8rem;color:var(--gold-light);display:block}
+.phase small{font-size:.74rem;opacity:.8;letter-spacing:.06em}
+/* ---------- SIGNATURE ---------- */
+.signature-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,4.5rem);align-items:stretch}
+.sig-media{position:relative;min-height:100%}
+.sig-media img{border-radius:26px;box-shadow:var(--shadow);aspect-ratio:5/6;object-fit:cover;width:100%;transition:.6s}
+.sig-media:hover img{transform:scale(1.04)}
+.rukavice-gallery{position:absolute;inset:0;display:flex;flex-direction:column;gap:1.2rem}
+.rukavice-gallery img{width:100%;flex:1;min-height:0;object-fit:cover;object-position:center;border-radius:20px;box-shadow:var(--shadow-sm);transition:.6s}
+.rukavice-gallery img:hover{transform:scale(1.02)}
+@media(max-width:1000px){.sig-media{min-height:0}.rukavice-gallery{position:static}.rukavice-gallery img{flex:none;aspect-ratio:4/3}}
+.sig-badge{position:absolute;top:-20px;left:-20px;width:130px;height:130px;border-radius:50%;background:radial-gradient(circle at 40% 35%,var(--gold-light),var(--gold));color:#fff;display:grid;place-items:center;text-align:center;font-family:var(--serif);font-weight:700;line-height:1.1;box-shadow:0 16px 36px -12px rgba(201,162,75,.7);animation:floaty 6s ease-in-out infinite}
+.sig-badge span{font-size:.92rem;padding:.4rem}
+.treat-list{display:grid;gap:1.2rem;margin-top:1.8rem}
+.treat{display:flex;gap:1.1rem;align-items:flex-start;background:#fff;border-radius:18px;padding:1.3rem 1.5rem;box-shadow:var(--shadow-sm);transition:.4s}
+.treat:hover{transform:translateX(8px);box-shadow:var(--shadow)}
+.treat .ic{flex:0 0 auto;width:48px;height:48px;border-radius:14px;background:linear-gradient(135deg,var(--gold-light),var(--gold));display:grid;place-items:center;color:#fff;transition:.4s}
+.treat:hover .ic{transform:rotate(-8deg) scale(1.08)}
+.treat h4{font-size:1.25rem;color:var(--plum-deep);margin-bottom:.2rem}
+.treat p{font-size:.88rem;color:var(--muted)}
+/* ---------- STEPS ---------- */
+.steps-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.5rem;counter-reset:step}
+.step{background:#fff;border-radius:20px;padding:2.2rem 1.8rem;box-shadow:var(--shadow-sm);position:relative;transition:.4s;overflow:hidden}
+.step::after{content:"";position:absolute;bottom:0;left:0;width:100%;height:3px;background:linear-gradient(90deg,var(--rose),var(--gold));transform:scaleX(0);transform-origin:left;transition:.45s}
+.step:hover{transform:translateY(-8px);box-shadow:var(--shadow)}
+.step:hover::after{transform:scaleX(1)}
+.step::before{counter-increment:step;content:"0" counter(step);font-family:var(--serif);font-size:3.4rem;font-weight:700;color:var(--blush-deep);opacity:.6;line-height:1;display:block;margin-bottom:.6rem;transition:.4s}
+.step:hover::before{color:var(--rose);opacity:.9}
+.step h4{font-size:1.3rem;color:var(--plum-deep);margin-bottom:.5rem}
+.step p{font-size:.88rem;color:var(--muted)}
+/* ---------- TEAM ---------- */
+.team-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.6rem}
+.member{text-align:center;background:#fff;border-radius:22px;padding:0 0 1.8rem;box-shadow:var(--shadow-sm);transition:.45s;border:1px solid rgba(233,185,189,.35);overflow:hidden}
+.member:hover{transform:translateY(-10px);box-shadow:var(--shadow)}
+.member .ph{width:100%;aspect-ratio:1/1;margin:0 0 1.2rem;overflow:hidden;background:linear-gradient(160deg,var(--blush),var(--cream-2));position:relative;transition:.45s}
+.member .ph::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(93,52,57,.12),transparent 40%);pointer-events:none}
+.member .ph img{width:100%;height:100%;object-fit:cover;object-position:center top;transition:.6s}
+.member:hover .ph img{transform:scale(1.05)}
+.member h4{font-size:1.32rem;color:var(--plum-deep);padding:0 1.2rem}
+.member .role{font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-top:.2rem;padding:0 1.2rem}
+.member p{font-size:.85rem;color:var(--muted);margin-top:.7rem;padding:0 1.4rem}
+/* ---------- TESTIMONIALS ---------- */
+.testi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:1.6rem}
+.quote{background:#fff;border-radius:22px;padding:2.2rem;box-shadow:var(--shadow-sm);position:relative;transition:.4s}
+.quote:hover{transform:translateY(-8px);box-shadow:var(--shadow)}
+.quote .qmark{font-family:var(--serif);font-size:4rem;color:var(--blush-deep);line-height:.6;height:30px}
+.quote .stars{color:var(--gold);letter-spacing:3px;margin-bottom:.6rem;font-size:.9rem}
+.quote p{font-style:italic;font-family:var(--serif);font-size:1.18rem;color:var(--ink);margin-bottom:1.3rem}
+.quote .who{display:flex;align-items:center;gap:.8rem}
+.quote .who .av{width:46px;height:46px;border-radius:50%;background:linear-gradient(135deg,var(--rose),var(--blush-deep));display:grid;place-items:center;color:#fff;font-family:var(--serif);font-weight:700}
+.quote .who b{display:block;font-family:var(--sans);font-weight:600;font-size:.92rem}
+.quote .who small{color:var(--muted);font-size:.78rem}
+/* ---------- CTA ---------- */
+.cta{background:linear-gradient(135deg,var(--plum),var(--rose));color:#fff;text-align:center;border-radius:34px;padding:clamp(3rem,6vw,5rem);box-shadow:var(--shadow);position:relative;overflow:hidden}
+.cta h2{font-size:clamp(2.1rem,4.6vw,3.4rem);color:#fff;margin-bottom:1rem}
+.cta p{color:rgba(255,255,255,.85);max-width:34em;margin:0 auto 2rem}
+.cta .btn-primary{background:#fff;color:var(--plum)}
+.cta .btn-ghost{color:#fff;border-color:rgba(255,255,255,.5)}
+.cta .bg-blob{opacity:.3}
+/* ---------- CONTACT ---------- */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,4rem);align-items:start}
+.contact-copy h2{font-size:clamp(2rem,4vw,3rem);color:var(--plum-deep);margin:.7rem 0 1.1rem}
+.contact-copy p{color:var(--muted);margin-bottom:2rem}
+.contact-cards{display:grid;gap:1rem}
+.cc{display:flex;align-items:center;gap:1.1rem;background:#fff;border-radius:16px;padding:1.2rem 1.4rem;box-shadow:var(--shadow-sm);transition:.4s}
+.cc:hover{transform:translateX(6px);box-shadow:var(--shadow)}
+.cc .ic{width:50px;height:50px;border-radius:14px;background:linear-gradient(135deg,var(--blush),var(--blush-deep));display:grid;place-items:center;color:var(--plum);flex:0 0 auto;transition:.4s}
+.cc:hover .ic{background:linear-gradient(135deg,var(--rose),var(--plum));color:#fff;transform:rotate(-6deg)}
+.cc small{display:block;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.cc b{font-size:1.02rem;color:var(--plum-deep);font-weight:500}
+.form{background:#fff;border-radius:24px;padding:2.4rem;box-shadow:var(--shadow)}
+.form h3{font-size:1.7rem;color:var(--plum-deep);margin-bottom:1.4rem}
+.field{margin-bottom:1.1rem}
+.field label{display:block;font-size:.76rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:.4rem}
+.field input,.field textarea,.field select{width:100%;padding:.85rem 1rem;border:1.5px solid var(--blush);border-radius:12px;font-family:var(--sans);font-size:.92rem;background:var(--cream);transition:.3s;color:var(--ink)}
+.field input:focus,.field textarea:focus,.field select:focus{outline:none;border-color:var(--rose);background:#fff;box-shadow:0 0 0 4px rgba(217,154,160,.15)}
+.form .btn-primary{width:100%;justify-content:center;margin-top:.4rem}
+.form-note{font-size:.78rem;color:var(--muted);text-align:center;margin-top:1rem}
+/* ---------- FOOTER ---------- */
+footer{background:var(--plum-deep);color:rgba(255,255,255,.78);padding:4rem 0 2rem}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:2.4rem;margin-bottom:3rem}
+.foot-brand .brand .mark{display:flex;align-items:center;justify-content:center}
+.foot-brand .brand .mark svg{display:block}
+.foot-brand .brand .txt b{color:#fff}
+.foot-brand .brand .txt span{color:rgba(255,255,255,.6)}
+.foot-brand p{margin-top:1.1rem;font-size:.9rem;max-width:26em}
+.foot-soc{display:flex;gap:.7rem;margin-top:1.3rem}
+.foot-soc a{width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,.1);display:grid;place-items:center;transition:.35s;color:#fff}
+.foot-soc a:hover{background:var(--gold);transform:translateY(-4px) rotate(8deg)}
+.foot-col h5{font-family:var(--sans);font-weight:600;letter-spacing:.1em;text-transform:uppercase;font-size:.76rem;color:#fff;margin-bottom:1.1rem}
+.foot-col a,.foot-col p{display:block;font-size:.9rem;margin-bottom:.6rem;transition:.3s;cursor:pointer}
+.foot-col a:hover{color:var(--gold-light);padding-left:6px}
+.foot-bottom{border-top:1px solid rgba(255,255,255,.12);padding-top:1.6rem;text-align:center;font-size:.82rem;color:rgba(255,255,255,.55)}
+.foot-bottom a{color:var(--gold-light)}
+.totop{position:fixed;bottom:26px;right:26px;width:50px;height:50px;border-radius:50%;background:linear-gradient(135deg,var(--plum),var(--rose));color:#fff;display:grid;place-items:center;box-shadow:var(--shadow);opacity:0;pointer-events:none;transition:.4s;z-index:90;border:none;cursor:pointer}
+.totop.show{opacity:1;pointer-events:auto}
+.totop:hover{transform:translateY(-4px)}
+/* ---------- RESPONSIVE ---------- */
+@media(max-width:1000px){
+  .menu,.nav-cta{display:none}
+  .burger{display:flex}
+  .hero-grid,.about-grid,.acad-grid,.signature-grid,.contact-grid{grid-template-columns:1fr}
+  .hero-visual{min-height:420px;margin-top:1rem;order:-1}
+  .about-media{max-width:440px;margin:0 auto}
+  .menu.open{display:flex;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:rgba(253,248,244,.98);backdrop-filter:blur(16px);padding:1.4rem 6%;gap:.5rem;box-shadow:var(--shadow-sm);align-items:stretch}
+  .menu.open a{font-size:1.05rem;padding:.9rem 1.1rem;text-align:left}
+  .menu.open a::after{display:none}
+}
+@media(max-width:640px){
+  .wrap{width:88%}
+  .hero{padding:110px 0 50px;min-height:auto}
+  .hero h1{font-size:clamp(2.2rem,8.5vw,3rem);margin:.3rem 0 1rem}
+  .hero p.lead{font-size:1rem;margin-bottom:1.8rem}
+  .hero-actions{flex-direction:column;align-items:stretch}
+  .hero-actions .btn{justify-content:center;white-space:nowrap;font-size:.8rem;letter-spacing:.03em;padding:1rem 1rem}
+  .hero-visual{min-height:340px}
+  .hero-stats{gap:1.4rem;margin-top:2.2rem}
+  .hero-stats .num{font-size:2rem}
+  .float-card{display:none}
+  .phero{padding:115px 0 40px}
+  .phero h1{font-size:clamp(2rem,8vw,2.6rem)}
+  .section{padding:55px 0}
+  .academy{border-radius:24px}
+  .acad-grid{padding:1.8rem}
+  .sig-badge{width:100px;height:100px;top:-14px;left:-10px}
+  .sig-badge span{font-size:.78rem}
+  .form{padding:1.6rem}
+  .about-media{max-width:340px}
+  .about-media .stat-bubble{right:0;bottom:-16px;padding:1rem 1.2rem}
+  .about-media .stat-bubble b{font-size:2rem}
+  .foot-grid{grid-template-columns:1fr 1fr;gap:1.8rem}
+  .brand .txt b{font-size:1.3rem}
+  .cta{border-radius:24px;padding:2.6rem 1.4rem}
+  .cta div[style*=flex]{flex-direction:column}
+  .cta .btn{justify-content:center;white-space:nowrap;font-size:.78rem;letter-spacing:.03em;padding:1rem .9rem}
+}
+@media(max-width:420px){
+  .foot-grid{grid-template-columns:1fr;text-align:center}
+  .foot-brand .brand{justify-content:center}
+  .foot-soc{justify-content:center}
+  .hero-stats{justify-content:space-between;width:100%}
+  .hero-img.hi-3{display:none}
+  .hi-1{width:72%;height:78%}
+  .hi-2{width:52%;height:48%}
+}
+</style>
+</head>
+<body>
+<!-- ============ TRANSITION VEIL ============ -->
+<div class="veil" id="veil">
+  <div class="vmark"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"/></svg></div>
+</div>
+<!-- ============ NAV ============ -->
+<header id="hdr">
+  <div class="nav">
+    <div class="brand" data-nav="home">
+      <span class="mark"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"/></svg></span>
+      <span class="txt"><b>Magični dodir</b><span>Centar za trudnice, bebe i mame</span></span>
+    </div>
+    <ul class="menu" id="menu">
+      <li><a data-nav="home">Početna</a></li>
+      <li><a data-nav="about">O nama</a></li>
+      <li><a data-nav="services">Usluge</a></li>
+      <li><a data-nav="academy">Akademija</a></li>
+      <li><a data-nav="signature">Masaže</a></li>
+      <li><a data-nav="team">Tim</a></li>
+      <li><a data-nav="contact">Kontakt</a></li>
+    </ul>
+    <a class="btn btn-primary nav-cta" data-nav="contact">Zakaži termin</a>
+    <button class="burger" id="burger" aria-label="Meni"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<main id="main">
+<!-- ============ PAGE: HOME ============ -->
+<section class="page active" id="page-home">
+  <div class="hero">
+    <div class="bg-blob" style="width:380px;height:380px;background:var(--blush-deep);top:-120px;right:-80px"></div>
+    <div class="bg-blob" style="width:300px;height:300px;background:var(--gold-light);bottom:-100px;left:-60px;opacity:.35"></div>
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <span class="badge-first"><span class="dot"></span> Prvi centar ovog tipa u Republici Srpskoj</span>
+        <h1>Topao početak za <em>bebe</em>, <em>mame</em> i buduće roditelje</h1>
+        <p class="lead"><strong style="color:var(--plum);font-weight:600">Magični dodir</strong> — centar za trudnice, bebe i mame.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" data-nav="academy">Akademija za trudnice</a>
+          <a class="btn btn-ghost" data-nav="services">Pogledaj usluge</a>
+        </div>
+        <div class="hero-stats">
+          <div><div class="num" data-count="500">0</div><small>Zadovoljnih mama</small></div>
+          <div><div class="num" data-count="6">0</div><small>Stručnjaka u timu</small></div>
+          <div><div class="num" data-count="1">0</div><small>Prvi u RS</small></div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="ring" style="width:260px;height:260px;top:30%;right:24%"></div>
+        <div class="hero-img hi-1"><img src="https://images.unsplash.com/photo-1555252333-9f8e92e65df9?auto=format&fit=crop&w=900&q=80" alt="Stopala bebe"></div>
+        <div class="hero-img hi-2"><img src="https://images.pexels.com/photos/2100341/pexels-photo-2100341.jpeg?auto=compress&cs=tinysrgb&w=700" alt="Trudnica"></div>
+        <div class="hero-img hi-3"><img src="https://images.unsplash.com/photo-1544126592-807ade215a0b?auto=format&fit=crop&w=500&q=80" alt="Beba"></div>
+        <div class="float-card fc-1"><span class="ic"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span> Stručni tim</div>
+        <div class="float-card fc-2"><span class="ic"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"/></svg></span> Nježan pristup</div>
+      </div>
+    </div>
+  </div>
+  <div class="marquee">
+    <div class="marquee-track">
+      <span><span class="star">✦</span> Masaža trudnica</span><span><span class="star">✦</span> Masaža beba</span><span><span class="star">✦</span> Baby handling</span><span><span class="star">✦</span> Vježbe za bebe 0–3 mj</span><span><span class="star">✦</span> Akademija za trudnice</span><span><span class="star">✦</span> Masaža zlatnim rukavicama</span><span><span class="star">✦</span> Fohow tretmani</span>
+      <span><span class="star">✦</span> Masaža trudnica</span><span><span class="star">✦</span> Masaža beba</span><span><span class="star">✦</span> Baby handling</span><span><span class="star">✦</span> Vježbe za bebe 0–3 mj</span><span><span class="star">✦</span> Akademija za trudnice</span><span><span class="star">✦</span> Masaža zlatnim rukavicama</span><span><span class="star">✦</span> Fohow tretmani</span>
+    </div>
+  </div>
+  <div class="section">
+    <div class="wrap">
+      <div class="shead">
+        <span class="eyebrow" style="justify-content:center">Zašto „Magični dodir“</span>
+        <h2>Sve za vas i vašu bebu — na jednom mjestu</h2>
+        <p>Spoj stručnosti i topline koji buduće i nove mame prati u svakom koraku.</p>
+      </div>
+      <div class="svc-grid">
+        <div class="svc-card">
+          <div class="svc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><path d="M12 4V2.4"/><path d="M9.4 11h.01"/><path d="M14.6 11h.01"/><path d="M9.4 14.4c1.6 1.3 3.6 1.3 5.2 0"/></svg></div>
+          <h3>Edukacija roditelja</h3><p>Masaža beba, baby handling i razvojne vježbe — znanje koje koristite svaki dan kod kuće.</p><span class="tag">Za bebe 0–3 mj</span>
+        </div>
+        <div class="svc-card">
+          <div class="svc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.3" cy="4" r="2.2"/><path d="M10.3 6.4c-1.7 0-2.7 1.4-2.7 3.6V21"/><path d="M10.3 6.4c2.6 0 4.5 1.9 4.5 4.4s-1.9 4.1-4.5 4.1"/><path d="M13 14.6c.7.7 1 1.7 1 3.1V21"/></svg></div>
+          <h3>Akademija za trudnice</h3><p>Kompletna psihofizička priprema uz dulu, psihologa, fizioterapeuta i patronažnu sestru.</p><span class="tag">Priprema za porođaj</span>
+        </div>
+        <div class="svc-card">
+          <div class="svc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 12.5c-1.4-1.8-1.4-3.8 0-5.6 1.4 1.8 1.4 3.8 0 5.6z"/><path d="M12 12.5c1.8-1 3.9-.8 5.5.6-1.7 1.5-3.8 1.4-5.5-.6z"/><path d="M12 12.5c-1.8-1-3.9-.8-5.5.6 1.7 1.5 3.8 1.4 5.5-.6z"/><path d="M4.5 15c2.2 1.8 4.7 2.7 7.5 2.7s5.3-.9 7.5-2.7"/></svg></div>
+          <h3>Masaže i wellness</h3><p>Masaža zlatnim rukavicama, specifična masaža za mame i Fohow tretmani za sve žene.</p><span class="tag">Signature tretmani</span>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:2.6rem"><a class="btn btn-primary" data-nav="services">Sve usluge</a></div>
+    </div>
+  </div>
+  <div class="section" style="padding-top:0">
+    <div class="wrap"><div class="cta">
+      <div class="bg-blob" style="width:240px;height:240px;background:#fff;top:-80px;right:-40px"></div>
+      <div class="bg-blob" style="width:200px;height:200px;background:var(--gold-light);bottom:-70px;left:-30px"></div>
+      <span class="eyebrow" style="color:var(--gold-light);justify-content:center">Vaše putovanje počinje ovdje</span>
+      <h2>Dopustite nam da budemo vaš oslonac</h2>
+      <p>Bilo da ste na početku trudnoće ili upoznajete svoju bebu — tu smo da svaki korak učinimo lakšim i ljepšim.</p>
+      <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
+        <a href="tel:+38765984480" class="btn btn-primary">Pozovi: 065 984 480</a>
+        <a class="btn btn-ghost" data-nav="contact">Pošalji upit</a>
+      </div>
+    </div></div>
+  </div>
+</section>
+<!-- ============ PAGE: ABOUT ============ -->
+<section class="page" id="page-about">
+  <div class="phero">
+    <div class="bg-blob" style="width:340px;height:340px;background:var(--blush-deep);top:-120px;right:-60px"></div>
+    <div class="wrap">
+      <div class="crumb">Početna <span>/</span> O nama</div>
+      <h1>O centru „Magični dodir“</h1>
+      <p>Mjesto gdje porodica raste uz stručnu, toplu i posvećenu podršku.</p>
+    </div>
+  </div>
+  <div class="section">
+    <div class="wrap about-grid">
+      <div class="about-media">
+        <div class="dots"></div>
+        <div class="main-img"><img src="https://images.unsplash.com/photo-1492725764893-90b379c2b6e7?auto=format&fit=crop&w=800&q=80" alt="Mama i beba"></div>
+        <div class="stat-bubble"><b>100%</b><span>Posvećeni vama</span></div>
+      </div>
+      <div class="about-copy">
+        <span class="eyebrow">Naša priča</span>
+        <h2>Prvi centar za trudnice, bebe i mame u RS</h2>
+        <p>Ponosni smo što smo <strong>prvi centar za trudnice, bebe i mame u Republici Srpskoj</strong> koji na jednom mjestu objedinjuje edukaciju roditelja, fizioterapeutski pristup razvoju bebe i sveobuhvatnu pripremu za porođaj i roditeljstvo.</p>
+        <p>Naša filozofija je nježnost kroz znanje — svaki dodir, vježba i savjet utemeljeni su na stručnosti tima dula, psihologa, fizioterapeuta i patronažne sestre.</p>
+        <ul class="about-list">
+          <li><span class="tick">✓</span> Edukacija za masažu beba i pravilno baby handling rukovanje</li>
+          <li><span class="tick">✓</span> Razvojne vježbe za bebe 0–3 mjeseca i „vrijeme na stomaku“</li>
+          <li><span class="tick">✓</span> Psihofizička priprema trudnica kroz našu Akademiju za trudnice</li>
+          <li><span class="tick">✓</span> Specifične masaže za mame i wellness tretmani za sve žene</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="section" style="padding-top:0;background:linear-gradient(180deg,var(--cream),var(--cream-2))">
+    <div class="wrap">
+      <div class="shead"><span class="eyebrow" style="justify-content:center">Kako funkcioniše</span><h2>Vaš put kroz „Magični dodir“</h2></div>
+      <div class="steps-grid">
+        <div class="step"><h4>Konsultacija</h4><p>Razgovaramo o vašim potrebama i biramo program koji vam najviše odgovara.</p></div>
+        <div class="step"><h4>Termin</h4><p>Rezervišemo termin u prijatnom i sigurnom ambijentu za mame i bebe.</p></div>
+        <div class="step"><h4>Edukacija</h4><p>Stručnjaci vas vode kroz svaku tehniku, vježbu i savjet — korak po korak.</p></div>
+        <div class="step"><h4>Podrška</h4><p>Ostajemo uz vas i nakon termina, sa savjetima kad god vam zatreba.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ============ PAGE: SERVICES ============ -->
+<section class="page" id="page-services">
+  <div class="phero">
+    <div class="bg-blob" style="width:340px;height:340px;background:var(--gold-light);top:-120px;left:-60px;opacity:.4"></div>
+    <div class="wrap">
+      <div class="crumb">Početna <span>/</span> Usluge</div>
+      <h1>Naše usluge</h1>
+      <p>Od prvih dana trudnoće do razvojnih koraka vaše bebe — programi prilagođeni baš vama.</p>
+    </div>
+  </div>
+  <div class="section">
+    <div class="wrap">
+      <div class="svc-grid">
+        <div class="svc-card">
+          <div class="svc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="13" cy="4.4" r="2"/><path d="M11.6 7c-1.7.4-2.8 1.8-2.8 3.8 0 2.6 1.4 4.6 1.4 6.4V21"/><path d="M11.4 9.2c1.9.5 3.4 2 4 4.2.3 1.1-.2 2-1.2 2.3"/><path d="M13.5 21c0-1.6.2-2.7.7-3.3"/></svg></div>
+          <h3>Masaža trudnica</h3><p>Nježna, prilagođena masaža za buduće mame — ublažava napetost u leđima i nogama, poboljšava cirkulaciju i donosi opuštanje u trudnoći.</p><span class="tag">Njega u trudnoći</span>
+        </div>
+        <div class="svc-card">
+          <div class="svc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><path d="M12 4V2.4"/><path d="M9.4 11h.01"/><path d="M14.6 11h.01"/><path d="M9.4 14.4c1.6 1.3 3.6 1.3 5.2 0"/></svg></div>
+          <h3>Masaža beba</h3><p>Učimo roditelje tehnikama nježne masaže koja podstiče razvoj, smiruje grčeve, poboljšava san i jača vezu sa bebom.</p><span class="tag">Edukacija roditelja</span>
+        </div>
+        <div class="svc-card">
+          <div class="svc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 13c2.3 3.6 5.8 5.4 9.5 5.4s7.2-1.8 9.5-5.4"/><path d="M2.5 13c-.5-.5-.8-1.1-.8-1.9"/><circle cx="8.5" cy="9.5" r="2.4"/><path d="M11 11.2c2.2-1.1 4.6-.7 6.4 1"/></svg></div>
+          <h3>Baby handling</h3><p>Pravilno postupanje sa bebom — kako nositi, podizati, presvlačiti i pozicionirati bebu uz zdrav psihomotorni razvoj.</p><span class="tag">Pravilno rukovanje</span>
+        </div>
+        <div class="svc-card">
+          <div class="svc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="14" cy="5" r="1.9"/><path d="M13.6 7.2l-2 3.8 2.7 2.4.7 5.1"/><path d="M11.6 11 7 9.7"/><path d="M14.3 13.4l3.8-1.3"/><path d="M7.2 20.2l2.8-4"/></svg></div>
+          <h3>Vježbe za bebe 0–3 mj</h3><p>Razvojne vježbe i „vrijeme na stomaku“ (tummy time) koje jačaju mišiće, podstiču motoriku i pravilno držanje.</p><span class="tag">Razvojni program</span>
+        </div>
+        <div class="svc-card">
+          <div class="svc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.3" cy="4" r="2.2"/><path d="M10.3 6.4c-1.7 0-2.7 1.4-2.7 3.6V21"/><path d="M10.3 6.4c2.6 0 4.5 1.9 4.5 4.4s-1.9 4.1-4.5 4.1"/><path d="M13 14.6c.7.7 1 1.7 1 3.1V21"/></svg></div>
+          <h3>Akademija za trudnice</h3><p>Kompletna psihofizička priprema za porođaj uz dulu, psihologa, fizioterapeuta i patronažnu sestru.</p><span class="tag">Priprema za porođaj</span>
+        </div>
+        <div class="svc-card">
+          <div class="svc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 12.5c-1.4-1.8-1.4-3.8 0-5.6 1.4 1.8 1.4 3.8 0 5.6z"/><path d="M12 12.5c1.8-1 3.9-.8 5.5.6-1.7 1.5-3.8 1.4-5.5-.6z"/><path d="M12 12.5c-1.8-1-3.9-.8-5.5.6 1.7 1.5 3.8 1.4 5.5-.6z"/><path d="M4.5 15c2.2 1.8 4.7 2.7 7.5 2.7s5.3-.9 7.5-2.7"/></svg></div>
+          <h3>Masaža za mame</h3><p>Specifična masaža za potrebe mama u postporođajnom periodu — opuštanje, oporavak i nova energija.</p><span class="tag">Oporavak i relaksacija</span>
+        </div>
+        <div class="svc-card">
+          <div class="svc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l10-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="16" cy="16" r="3"/></svg></div>
+          <h3>Ples za bebe i mame</h3><p>Radost pokreta kroz muziku — zajedničke plesne radionice koje jačaju vezu mame i bebe, podstiču razvoj i donose dobru energiju.</p><span class="tag">Pokret i povezivanje</span>
+        </div>
+        <div class="svc-card">
+          <div class="svc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2.5" width="12" height="19" rx="3"/><path d="M9.5 6h5"/><path d="M8.5 12.5h2l1-2.5 1.6 5 1-2.5h1.4"/><circle cx="12" cy="18.4" r=".9"/></svg></div>
+          <h3>Fohow aparat</h3><p>Napredni Fohow tretmani za sve žene — za vitalnost, cirkulaciju i opšte blagostanje organizma.</p><span class="tag">Wellness za sve žene</span>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:2.6rem"><a class="btn btn-primary" data-nav="contact">Zakaži uslugu</a></div>
+    </div>
+  </div>
+</section>
+<!-- ============ PAGE: ACADEMY ============ -->
+<section class="page" id="page-academy">
+  <div class="phero">
+    <div class="bg-blob" style="width:340px;height:340px;background:var(--blush-deep);top:-120px;right:-60px"></div>
+    <div class="wrap">
+      <div class="crumb">Početna <span>/</span> Akademija</div>
+      <h1>Akademija za trudnice</h1>
+      <p>Naš prepoznatljiv program psihofizičke pripreme za porođaj i roditeljstvo.</p>
+    </div>
+  </div>
+  <div class="section">
+    <div class="wrap">
+      <div class="academy">
+        <div class="bg-blob" style="width:340px;height:340px;background:var(--rose);top:-100px;left:-80px"></div>
+        <div class="bg-blob" style="width:300px;height:300px;background:var(--gold);bottom:-120px;right:-70px"></div>
+        <div class="acad-grid">
+          <div class="acad-copy">
+            <span class="eyebrow">Naš prepoznatljiv program</span>
+            <h2>Priprema kroz <em>znanje</em> i podršku</h2>
+            <p>Naša poznata Akademija za trudnice pruža kompletnu psihofizičku pripremu za porođaj i roditeljstvo. Kroz predavanja, vježbe i individualnu podršku, buduće mame stiču znanje i samopouzdanje za jedan od najvažnijih trenutaka u životu.</p>
+            <p style="color:var(--gold-light);font-family:var(--serif);font-size:1.2rem;font-style:italic">Uz vas je cijeli tim stručnjaka:</p>
+            <div class="team-pills">
+              <span><span class="ic">●</span> Dula</span><span><span class="ic">●</span> Psiholog</span><span><span class="ic">●</span> Fizioterapeut</span><span><span class="ic">●</span> Patronažna sestra</span>
+            </div>
+            <div class="phase-row">
+              <div class="phase"><b>1</b><small>Priprema tijela i daha</small></div>
+              <div class="phase"><b>2</b><small>Psihološka podrška</small></div>
+              <div class="phase"><b>3</b><small>Nakon porođaja</small></div>
+            </div>
+            <a class="btn btn-primary" style="margin-top:2rem;background:#fff;color:var(--plum)" data-nav="contact">Prijavi se u Akademiju</a>
+          </div>
+          <div class="acad-media">
+            <div class="ring"></div>
+            <img src="https://images.unsplash.com/photo-1518621736915-f3b1c41bfd00?auto=format&fit=crop&w=800&q=80" alt="Akademija za trudnice">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ============ PAGE: SIGNATURE / MASAŽE ============ -->
+<section class="page" id="page-signature">
+  <div class="phero">
+    <div class="bg-blob" style="width:340px;height:340px;background:var(--gold-light);top:-120px;left:-60px;opacity:.45"></div>
+    <div class="wrap">
+      <div class="crumb">Početna <span>/</span> Masaže</div>
+      <h1>Signature masaže i tretmani</h1>
+      <p>Luksuz njege koji osjetite odmah — posvećeno dobrobiti svake žene.</p>
+    </div>
+  </div>
+  <div class="section">
+    <div class="wrap signature-grid">
+      <div class="sig-media">
+        <!-- Vaše dvije fotografije: sačuvajte ih kao "zlatne-rukavice-1.jpg" i "zlatne-rukavice-2.jpg" pored index.html. Dok ih nema, prikazuju se rezervne slike. -->
+        <div class="rukavice-gallery">
+          <img src="zlatne-rukavice-1.jpg" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?auto=format&fit=crop&w=600&q=80'" alt="Terapijsko djelovanje zlatnih rukavica" style="object-position:center bottom">
+          <img src="zlatne-rukavice-2.jpg" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?auto=format&fit=crop&w=600&q=80'" alt="Tretman zlatnim rukavicama">
+        </div>
+      </div>
+      <div class="sig-copy">
+        <span class="eyebrow">Signature tretmani</span>
+        <h2 style="font-size:clamp(2rem,4vw,3rem);color:var(--plum-deep);margin:.7rem 0 1rem">Spoj stručnosti i potpune relaksacije</h2>
+        <p style="color:var(--muted)">Naši prepoznatljivi tretmani spajaju znanje i osjećaj potpunog opuštanja — za svaku ženu koja prođe kroz vrata centra.</p>
+        <div class="treat-list">
+          <div class="treat">
+            <span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M7 11V6a2 2 0 0 1 4 0v5M11 11V5a2 2 0 0 1 4 0v6M15 11V7a2 2 0 0 1 4 0v6a6 6 0 0 1-6 6h-2a6 6 0 0 1-5-3l-2-4a1.6 1.6 0 0 1 2.6-1.8L7 13"/></svg></span>
+            <div><h4>Masaža zlatnim rukavicama</h4><p>Ekskluzivan tretman koji podstiče cirkulaciju i regeneraciju kože, uz osjećaj raskoši i dubokog opuštanja.</p></div>
+          </div>
+          <div class="treat">
+            <span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 12.5c-1.4-1.8-1.4-3.8 0-5.6 1.4 1.8 1.4 3.8 0 5.6z"/><path d="M12 12.5c1.8-1 3.9-.8 5.5.6-1.7 1.5-3.8 1.4-5.5-.6z"/><path d="M12 12.5c-1.8-1-3.9-.8-5.5.6 1.7 1.5 3.8 1.4 5.5-.6z"/><path d="M4.5 15c2.2 1.8 4.7 2.7 7.5 2.7s5.3-.9 7.5-2.7"/></svg></span>
+            <div><h4>Specifična masaža za mame</h4><p>Ciljani tretman za oporavak nakon porođaja, oslobađanje napetosti i obnovu energije.</p></div>
+          </div>
+          <div class="treat">
+            <span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2.5" width="12" height="19" rx="3"/><path d="M9.5 6h5"/><path d="M8.5 12.5h2l1-2.5 1.6 5 1-2.5h1.4"/><circle cx="12" cy="18.4" r=".9"/></svg></span>
+            <div><h4>Fohow aparat</h4><p>Savremena tehnologija za sve žene — podstiče vitalnost, cirkulaciju i opšte blagostanje.</p></div>
+          </div>
+        </div>
+        <a class="btn btn-primary" style="margin-top:1.8rem" data-nav="contact">Zakaži tretman</a>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ============ PAGE: TEAM ============ -->
+<section class="page" id="page-team">
+  <div class="phero">
+    <div class="bg-blob" style="width:340px;height:340px;background:var(--blush-deep);top:-120px;right:-60px"></div>
+    <div class="wrap">
+      <div class="crumb">Početna <span>/</span> Tim</div>
+      <h1>Naš stručni tim</h1>
+      <p>Ljudi kojima vjerujete vaše najdraže — multidisciplinaran tim posvećen vama.</p>
+    </div>
+  </div>
+  <div class="section">
+    <div class="wrap">
+      <div class="team-grid">
+        <!-- Sačuvajte fotografiju Tanje kao "tanja-stojnic.jpg" pored index.html. Ako fajl ne postoji, prikazuje se rezervna slika. -->
+        <div class="member"><div class="ph"><img src="tanja-stojnic.jpg" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=400&q=80'" alt="Tanja Stojnić — fizioterapeut"></div><h4>Tanja Stojnić</h4><div class="role">Fizioterapeut</div><p>Fizioterapeut — vježbe za trudnice, razvojni program za bebe i masaža zlatnim rukavicama. <a href="https://www.instagram.com/p/Cu9i3jxtipV/" target="_blank" rel="noopener" style="color:var(--gold);font-weight:500">Instagram ↗</a></p></div>
+        <!-- Sačuvajte fotografiju Jovane kao "jovana.jpg" pored index.html. Ako fajl ne postoji, prikazuje se rezervna slika. -->
+        <div class="member"><div class="ph"><img src="jovana.jpg" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&w=400&q=80'" alt="Jovana — dula"></div><h4>Jovana</h4><div class="role">Dula · saradnica</div><p>Dula i savjetnica za ishranu u trudnoći i postporođajnom periodu, te savjetnica za dohranu beba.</p></div>
+        <div class="member"><div class="ph"><img src="https://images.unsplash.com/photo-1607990281513-2c110a25bd8c?auto=format&fit=crop&w=400&q=80" alt="Psiholog"></div><h4>Psiholog</h4><div class="role">Mentalno blagostanje</div><p>Priprema na emotivne promjene i podrška mentalnom zdravlju mame.</p></div>
+        <div class="member"><div class="ph"><img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?auto=format&fit=crop&w=400&q=80" alt="Patronažna sestra"></div><h4>Patronažna sestra</h4><div class="role">Njega i savjeti</div><p>Stručni savjeti o njezi, dojenju i prvim danima sa bebom kod kuće.</p></div>
+      </div>
+    </div>
+  </div>
+  <div class="section" style="padding-top:0;background:linear-gradient(150deg,var(--blush),var(--cream))">
+    <div class="wrap">
+      <div class="shead"><span class="eyebrow" style="justify-content:center">Iskustva mama</span><h2>Riječi koje nas griju</h2></div>
+      <div class="testi-grid">
+        <div class="quote"><div class="qmark">”</div><div class="stars">★★★★★</div><p>Akademija za trudnice mi je dala samopouzdanje koje nisam imala. Tim je topao i uvijek dostupan.</p><div class="who"><span class="av">J</span><div><b>Jovana M.</b><small>Banja Luka</small></div></div></div>
+        <div class="quote"><div class="qmark">”</div><div class="stars">★★★★★</div><p>Naučili su me kako da masiram i pravilno nosim bebu. Beba bolje spava, a ja se osjećam sigurno.</p><div class="who"><span class="av">S</span><div><b>Sara P.</b><small>Mama bebe od 2 mjeseca</small></div></div></div>
+        <div class="quote"><div class="qmark">”</div><div class="stars">★★★★★</div><p>Masaža zlatnim rukavicama je najljepše što sam priuštila sebi nakon porođaja. Preporuka od srca!</p><div class="who"><span class="av">M</span><div><b>Milica K.</b><small>Novopečena mama</small></div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ============ PAGE: CONTACT ============ -->
+<section class="page" id="page-contact">
+  <div class="phero">
+    <div class="bg-blob" style="width:340px;height:340px;background:var(--gold-light);top:-120px;left:-60px;opacity:.45"></div>
+    <div class="wrap">
+      <div class="crumb">Početna <span>/</span> Kontakt</div>
+      <h1>Javite nam se</h1>
+      <p>Rado ćemo odgovoriti na sva vaša pitanja i pomoći vam da odaberete pravi program.</p>
+    </div>
+  </div>
+  <div class="section">
+    <div class="wrap contact-grid">
+      <div class="contact-copy">
+        <span class="eyebrow">Kontakt podaci</span>
+        <h2>Tu smo za vas</h2>
+        <p>Pozovite nas, pišite ili nas pratite na društvenim mrežama — odgovaramo u najkraćem mogućem roku.</p>
+        <div class="contact-cards">
+          <a class="cc" href="tel:+38765984480"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.7a2 2 0 0 1-.4 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.5 2.7.6a2 2 0 0 1 1.7 2z"/></svg></span><div><small>Telefon</small><b>065 984 480</b></div></a>
+          <a class="cc" href="mailto:efbcmagicnidodir@gmail.com"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 6 10 7 10-7"/></svg></span><div><small>Email</small><b>efbcmagicnidodir@gmail.com</b></div></a>
+          <a class="cc" href="https://www.instagram.com/magicni.dodir/" target="_blank" rel="noopener"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></span><div><small>Instagram</small><b>@magicni.dodir</b></div></a>
+          <a class="cc" href="https://www.facebook.com/magicniidodir/" target="_blank" rel="noopener"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></span><div><small>Facebook</small><b>Magični dodir</b></div></a>
+        </div>
+      </div>
+      <form class="form" id="contactForm">
+        <h3>Pošaljite upit</h3>
+        <div class="field"><label>Ime i prezime</label><input type="text" name="name" placeholder="Vaše ime" required></div>
+        <div class="field"><label>Telefon</label><input type="tel" name="phone" placeholder="065 000 000" required></div>
+        <div class="field"><label>Usluga koja vas zanima</label>
+          <select name="service"><option>Akademija za trudnice</option><option>Masaža trudnica</option><option>Masaža beba / Baby handling</option><option>Vježbe za bebe 0–3 mj</option><option>Masaža za mame</option><option>Masaža zlatnim rukavicama</option><option>Fohow tretman</option></select>
+        </div>
+        <div class="field"><label>Poruka</label><textarea name="msg" rows="3" placeholder="Recite nam nešto više..."></textarea></div>
+        <button type="submit" class="btn btn-primary">Pošalji upit</button>
+        <p class="form-note" id="formNote">Odgovaramo u najkraćem mogućem roku ♡</p>
+      </form>
+    </div>
+  </div>
+</section>
+</main>
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div class="brand" data-nav="home">
+          <span class="mark"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"/></svg></span>
+          <span class="txt"><b>Magični dodir</b><span>Centar za trudnice, bebe i mame</span></span>
+        </div>
+        <p>Prvi centar za trudnice, bebe i mame u Republici Srpskoj. Nježnost kroz znanje — od trudnoće do prvih razvojnih koraka vaše bebe.</p>
+        <div class="foot-soc">
+          <a href="https://www.instagram.com/magicni.dodir/" target="_blank" rel="noopener" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+          <a href="https://www.facebook.com/magicniidodir/" target="_blank" rel="noopener" aria-label="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+          <a href="mailto:efbcmagicnidodir@gmail.com" aria-label="Email"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 6 10 7 10-7"/></svg></a>
+        </div>
+      </div>
+      <div class="foot-col"><h5>Usluge</h5><a data-nav="services">Masaža trudnica</a><a data-nav="services">Masaža beba</a><a data-nav="services">Baby handling</a><a data-nav="services">Vježbe za bebe</a><a data-nav="signature">Masaža za mame</a><a data-nav="services">Ples za bebe i mame</a></div>
+      <div class="foot-col"><h5>Centar</h5><a data-nav="about">O nama</a><a data-nav="academy">Akademija za trudnice</a><a data-nav="team">Naš tim</a><a data-nav="contact">Kontakt</a></div>
+      <div class="foot-col"><h5>Kontakt</h5><p><a href="tel:+38765984480">065 984 480</a></p><p style="font-size:.82rem"><a href="mailto:efbcmagicnidodir@gmail.com">efbcmagicnidodir@gmail.com</a></p><p>@magicni.dodir</p></div>
+    </div>
+    <div class="foot-bottom">© 2026 „Magični dodir“ — Centar za trudnice, bebe i mame · Republika Srpska · Sva prava zadržana</div>
+  </div>
+</footer>
+<button class="totop" id="totop" aria-label="Na vrh"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m18 15-6-6-6 6"/></svg></button>
+<script>
+const hdr=document.getElementById('hdr'),totop=document.getElementById('totop'),veil=document.getElementById('veil');
+const burger=document.getElementById('burger'),menu=document.getElementById('menu');
+const pages=document.querySelectorAll('.page'),navLinks=document.querySelectorAll('.menu a');
+let busy=false;
+window.addEventListener('scroll',()=>{
+  const y=window.scrollY;
+  hdr.classList.toggle('scrolled',y>40);
+  totop.classList.toggle('show',y>500);
+});
+function showPage(id){
+  pages.forEach(p=>p.classList.remove('active'));
+  const t=document.getElementById('page-'+id)||document.getElementById('page-home');
+  t.classList.add('active');
+  navLinks.forEach(a=>a.classList.toggle('active',a.dataset.nav===id));
+  if(id==='home') runCounters();
+  window.scrollTo({top:0,behavior:'auto'});
+}
+function navigate(id){
+  if(busy) return; busy=true;
+  veil.classList.add('show');
+  hdr.classList.remove('scrolled');
+  setTimeout(()=>{ showPage(id); }, 430);
+  setTimeout(()=>{ veil.classList.remove('show'); busy=false; }, 880);
+  if(history.replaceState) history.replaceState(null,'','#'+id);
+}
+document.querySelectorAll('[data-nav]').forEach(el=>{
+  el.addEventListener('click',(e)=>{
+    e.preventDefault();
+    navigate(el.dataset.nav);
+    menu.classList.remove('open'); burger.classList.remove('x');
+  });
+});
+burger.addEventListener('click',()=>{menu.classList.toggle('open');burger.classList.toggle('x');});
+totop.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+// contact actions that work on BOTH desktop and mobile
+(function(){
+  function isMobile(){return /Android|iPhone|iPad|iPod|Mobi|Windows Phone/i.test(navigator.userAgent);}
+  let toastEl;
+  function toast(msg){
+    if(!toastEl){
+      toastEl=document.createElement('div');
+      toastEl.style.cssText='position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(20px);background:#5d3439;color:#fff;padding:.85rem 1.5rem;border-radius:50px;font-family:Jost,sans-serif;font-size:.86rem;font-weight:500;box-shadow:0 16px 36px -12px rgba(125,74,82,.65);z-index:400;opacity:0;transition:.35s;pointer-events:none';
+      document.body.appendChild(toastEl);
+    }
+    toastEl.textContent=msg;
+    requestAnimationFrame(()=>{toastEl.style.opacity='1';toastEl.style.transform='translateX(-50%) translateY(0)';});
+    clearTimeout(toastEl._t);
+    toastEl._t=setTimeout(()=>{toastEl.style.opacity='0';toastEl.style.transform='translateX(-50%) translateY(20px)';},2800);
+  }
+  // PHONE
+  document.querySelectorAll('a[href^="tel:"]').forEach(a=>{
+    a.addEventListener('click',e=>{
+      if(isMobile())return; // mobile dials normally
+      e.preventDefault();
+      const num=a.getAttribute('href').replace('tel:','');
+      if(navigator.clipboard&&navigator.clipboard.writeText){
+        navigator.clipboard.writeText(num).then(()=>toast('Broj kopiran u clipboard: '+num)).catch(()=>toast('Naš broj: '+num));
+      }else{toast('Naš broj: '+num);}
+    });
+  });
+  // EMAIL
+  document.querySelectorAll('a[href^="mailto:"]').forEach(a=>{
+    a.addEventListener('click',e=>{
+      if(isMobile())return; // mobile opens mail app
+      e.preventDefault();
+      const mail=a.getAttribute('href').replace('mailto:','').split('?')[0];
+      window.open('https://mail.google.com/mail/?view=cm&fs=1&to='+encodeURIComponent(mail),'_blank','noopener');
+    });
+  });
+})();
+function runCounters(){
+  document.querySelectorAll('#page-home [data-count]').forEach(el=>{
+    const target=+el.dataset.count;let n=0;
+    const suffix=target>=500?'+':'';
+    const step=Math.max(1,Math.ceil(target/45));
+    el.textContent='0';
+    const t=setInterval(()=>{n+=step;if(n>=target){n=target;clearInterval(t);}el.textContent=n+suffix;},28);
+  });
+}
+window.addEventListener('mousemove',(e)=>{
+  if(window.innerWidth<1000)return;
+  const v=document.querySelector('#page-home .hero-visual'); if(!v)return;
+  const x=(e.clientX/window.innerWidth-.5)*14,y=(e.clientY/window.innerHeight-.5)*14;
+  v.style.transform=`translate(${x}px,${y}px)`;
+});
+document.getElementById('contactForm').addEventListener('submit',(e)=>{
+  e.preventDefault();
+  const note=document.getElementById('formNote');
+  note.textContent='Hvala! Vaš upit je zabilježen — javljamo se uskoro ♡';
+  note.style.color='var(--rose)';
+  e.target.reset();
+});
+const start=(location.hash||'').replace('#','');
+if(start && document.getElementById('page-'+start)) showPage(start); else runCounters();
+</script>
+</body>
+</html>
