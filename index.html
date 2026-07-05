@@ -335,11 +335,10 @@ footer{background:var(--plum-deep);color:rgba(255,255,255,.78);padding:4rem 0 2r
   header .brand .mark svg{width:21px;height:21px}
   header .brand .txt b{font-size:1.02rem}
   header .brand .txt span{font-size:.5rem;letter-spacing:.14em}
-  /* Fix 3: mobile video zoom no longer touches button above */
-  .acad-media{margin-top:.6rem;height:auto;min-height:0}
-  .acad-media img,.acad-media video{aspect-ratio:4/3;height:auto}
-  .acad-media video,.acad-media img{transform:none}
-  .acad-media:hover video,.acad-media:hover img{transform:none}
+  /* mobile: malo veca slika + animacija na dodir/hover */
+  .acad-media{margin-top:.6rem;height:auto;min-height:0;overflow:hidden;border-radius:24px}
+  .acad-media img,.acad-media video{aspect-ratio:1/1;height:auto;transform:none;transition:transform .5s ease,filter .5s ease}
+  .acad-media img:hover,.acad-media img:active,.acad-media video:hover,.acad-media video:active{transform:scale(1.06);filter:brightness(1.05)}
   .acad-media .ring{display:none}
   .cta{border-radius:24px;padding:2.6rem 1.4rem}
   .cta div[style*=flex]{flex-direction:column}
